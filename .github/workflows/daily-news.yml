@@ -1,0 +1,35 @@
+name: Daily News Digest
+
+on:
+  # 毎日MMT 07:00 に実行（UTC 00:30）
+  schedule:
+    - cron: "30 0 * * *"
+  # GitHubのActionsタブから手動実行も可能
+  workflow_dispatch:
+
+jobs:
+  send-digest:
+    name: ニュースダイジェスト生成・送信
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js のセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: 依存パッケージをインストール
+        run: npm ci
+
+      - name: ニュースダイジェストを生成・送信
+        run: node src/index.js
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}

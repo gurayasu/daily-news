@@ -1,0 +1,13 @@
+# Nodeモジュール
+node_modules/
+
+# ローカル環境変数（APIキーなど機密情報を含む）
+.env
+
+# ログファイル
+*.log
+npm-debug.log*
+
+# OS生成ファイル
+.DS_Store
+Thumbs.db

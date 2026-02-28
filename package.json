@@ -1,0 +1,16 @@
+{
+  "name": "daily-news-digest",
+  "version": "1.0.0",
+  "description": "日刊ニュースダイジェスト自動配信システム（GitHub Actions版）",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test:rss": "node src/testRss.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^8.0.1",
+    "xml2js": "^0.6.2"
+  }
+}
