@@ -9,10 +9,10 @@
  */
 const CONFIG = {
   // Gemini APIキー（Google AI Studio: https://aistudio.google.com/ で取得）
-  GEMINI_API_KEY: "AIzaSyBPRlilum5QbDn_jxcXWaEyiUCJgvoRrUk",
+  GEMINI_API_KEY: "XXXXX",
 
   // メール送信先（複数可。カンマ区切りで追加）
-  EMAIL_RECIPIENTS: ["yasu.23721740311@gmail.com"],
+  EMAIL_RECIPIENTS: ["XXXXX@mail.com"],
 
   // メール件名のプレフィックス
   EMAIL_SUBJECT_PREFIX: "【日刊ニュースダイジェスト】",
