@@ -294,7 +294,7 @@ function generateDigestWithGemini(articles) {
 ## 【No.X】記事タイトル（ソース名）
 
 **📋 要約**
-200〜250字で要約
+250〜300字で要約
 
 **🔗 参考URL**: [URLをそのまま記載]
 
