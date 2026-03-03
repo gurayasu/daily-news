@@ -67,6 +67,7 @@ export const CONFIG = {
       name: "Al Jazeera English",
       url: "https://www.aljazeera.com/xml/rss/all.xml",
       type: "国際",
+      maxArticles: 16,
     },
     {
       name: "Deutsche Welle（国際）",
