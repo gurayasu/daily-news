@@ -33,8 +33,7 @@ export async function generateDigestWithGemini(articles) {
 
   const prompt = `あなたはニュースリサーチ専門のAIです。
 
-以下の記事リストを分析し、${today}の「国際情勢」「国際政治・経済情勢」「日本の政治・経済情勢」に関する重要なニュースを約20件、幅広く選定・整理してください。
-また、関連する周辺トピックも適切に含めてください。
+以下の記事リストを分析し、${today}の「国際情勢」「国際政治・経済情勢」「日本の政治・経済情勢」に関する最も重要なニュースを最大20件まで幅広く選定してください。
 
 【対象テーマ】
 ・国際情勢（米中関係、欧州情勢、ウクライナ情勢、中東、アジア太平洋、安全保障、国際機関の動向など）
@@ -64,10 +63,13 @@ export async function generateDigestWithGemini(articles) {
 
 ---
 
+【タイトル翻訳ルール】
+・記事タイトルは必ず日本語に翻訳して記載すること（原文タイトルをそのまま使わない）。
+
 【収集した記事リスト】
 ${articleListText}
 
-※必ず約20件選定し、日本語のみで出力すること。英語記事も日本語で要約して含めること。`;
+※最大20件まで選定し、日本語のみで出力すること。英語記事など日本語以外の記事も、タイトル・要約の両方を日本語化して含めること。`;
 
   const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${CONFIG.GEMINI_MODEL}:generateContent?key=${CONFIG.GEMINI_API_KEY}`;
 
