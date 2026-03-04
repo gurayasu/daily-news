@@ -86,7 +86,7 @@ async function parseRssXml(xmlText, feed, cutoffTime) {
   // RSS 2.0
   if (parsed.rss) {
     const items = toArray(parsed.rss?.channel?.item);
-    for (const item of items.slice(0, getMaxArticlesForFeed(feed))) {
+    for (const item of items.slice(0, CONFIG.MAX_ARTICLES_PER_FEED)) {
       const article = extractRssItem(item, feed, cutoffTime, "rss2");
       if (article) articles.push(article);
     }
@@ -94,7 +94,7 @@ async function parseRssXml(xmlText, feed, cutoffTime) {
   // Atom
   else if (parsed.feed) {
     const items = toArray(parsed.feed?.entry);
-    for (const item of items.slice(0, getMaxArticlesForFeed(feed))) {
+    for (const item of items.slice(0, CONFIG.MAX_ARTICLES_PER_FEED)) {
       const article = extractRssItem(item, feed, cutoffTime, "atom");
       if (article) articles.push(article);
     }
@@ -108,7 +108,7 @@ async function parseRssXml(xmlText, feed, cutoffTime) {
     );
     if (rootKey) {
       const items = toArray(parsed[rootKey]?.item);
-      for (const item of items.slice(0, getMaxArticlesForFeed(feed))) {
+      for (const item of items.slice(0, CONFIG.MAX_ARTICLES_PER_FEED)) {
         const article = extractRssItem(item, feed, cutoffTime, "rdf");
         if (article) articles.push(article);
       }
@@ -210,16 +210,4 @@ function stripHtml(html) {
     .replace(/&nbsp;/g, " ")
     .replace(/\s+/g, " ")
     .trim();
-}
-
-/**
- * フィードごとの最大取得件数を返す
- * @param {Object} feed - フィード設定
- * @returns {number} 最大取得件数
- */
-function getMaxArticlesForFeed(feed) {
-  if (Number.isInteger(feed?.maxArticles) && feed.maxArticles > 0) {
-    return feed.maxArticles;
-  }
-  return CONFIG.MAX_ARTICLES_PER_FEED;
 }
