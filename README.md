@@ -5,7 +5,7 @@
 | 項目 | 内容 |
 |------|------|
 | 実行環境 | GitHub Actions（無料・時間制限なし） |
-| AI要約 | Gemini API (`gemini-3.1-flash-lite-preview`) |
+| AI要約 | Gemini API (`gemini-3.1-flash-lite`) |
 | メール送信 | Nodemailer + Gmail SMTP |
 | スケジュール | 毎日MMT 07:00（手動実行も可） |
 
@@ -81,7 +81,7 @@ GitHubリポジトリの **Settings → Secrets and variables → Actions → Ne
 | `EMAIL_RECIPIENTS` | `a@gmail.com,b@example.com` | 送信先（複数はカンマ区切り） |
 
 > [!NOTE]
-> `GEMINI_MODEL` は省略可能です。省略時は `gemini-3.1-flash-lite-preview` が使われます。
+> `GEMINI_MODEL` は省略可能です。省略時は `gemini-3.1-flash-lite` が使われます。
 
 ---
 

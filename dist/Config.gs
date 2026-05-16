@@ -19,8 +19,8 @@ const CONFIG = {
 
   // 使用するGeminiモデル
   // ※ gemini-2.5-flashはThinking Modelのため処理時間が長くGASの6分制限に引っかかる
-  // ※ ニュース要約にはgemini-3.1-flash-lite-previewで十分な品質が得られ、かつ高速
-  GEMINI_MODEL: "gemini-3.1-flash-lite-preview",
+  // ※ ニュース要約にはgemini-3.1-flash-liteで十分な品質が得られ、かつ高速
+  GEMINI_MODEL: "gemini-3.1-flash-lite",
 
   // 1回の実行でRSSから取得する最大記事数
   // ※ 多すぎるとGeminiへの送信データが巨大化してタイムアウトする（8件で失敗実績あり）

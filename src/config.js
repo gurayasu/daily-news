@@ -12,8 +12,8 @@ export const CONFIG = {
   GEMINI_API_KEY: requireEnv("GEMINI_API_KEY"),
 
   // 使用するGeminiモデル
-  // gemini-3.1-flash-lite-preview は高速かつニュース要約に十分な品質
-  GEMINI_MODEL: process.env.GEMINI_MODEL || "gemini-3.1-flash-lite-preview",
+  // gemini-3.1-flash-lite は高速かつニュース要約に十分な品質
+  GEMINI_MODEL: process.env.GEMINI_MODEL || "gemini-3.1-flash-lite",
 
   // メール送信元アカウント（GitHub Secret: GMAIL_USER）
   GMAIL_USER: requireEnv("GMAIL_USER"),
